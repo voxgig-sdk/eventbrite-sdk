@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "Create, read, and update Eventbrite events."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "bearerAuth"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "https://www.eventbriteapi.com/v3"
+        }
+      ]
+      summary: "Create, read, and update Eventbrite events."
+      title: "Eventbrite Events API"
+      version: "3.0.0"
+      website: "https://eventbriteapi.com"
+    }
+  }
+}
+

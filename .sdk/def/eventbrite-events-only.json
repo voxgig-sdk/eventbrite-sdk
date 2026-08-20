@@ -1,0 +1,143 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Eventbrite Events API",
+    "version": "3.0.0",
+    "description": "Create, read, and update Eventbrite events."
+  },
+  "servers": [
+    { "url": "https://www.eventbriteapi.com/v3" }
+  ],
+  "security": [
+    { "bearerAuth": [] }
+  ],
+  "paths": {
+    "/events": {
+      "get": {
+        "operationId": "listEvents",
+        "summary": "List events",
+        "responses": {
+          "200": {
+            "description": "A page of events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Event" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createEvent",
+        "summary": "Create an event",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/EventInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The created event",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Event" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/{event_id}": {
+      "get": {
+        "operationId": "getEvent",
+        "summary": "Retrieve an event",
+        "parameters": [
+          { "name": "event_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested event",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Event" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "updateEvent",
+        "summary": "Update an event",
+        "parameters": [
+          { "name": "event_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/EventInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated event",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Event" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "EventInput": {
+        "type": "object",
+        "required": ["name", "start", "end", "currency"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "start": { "type": "string" },
+          "end": { "type": "string" },
+          "currency": { "type": "string" },
+          "online_event": { "type": "boolean" },
+          "listed": { "type": "boolean" },
+          "shareable": { "type": "boolean" },
+          "capacity": { "type": "integer" }
+        }
+      },
+      "Event": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "start": { "type": "string" },
+          "end": { "type": "string" },
+          "currency": { "type": "string" },
+          "online_event": { "type": "boolean" },
+          "listed": { "type": "boolean" },
+          "shareable": { "type": "boolean" },
+          "capacity": { "type": "integer" },
+          "status": { "type": "string" },
+          "created": { "type": "string" }
+        }
+      }
+    }
+  }
+}

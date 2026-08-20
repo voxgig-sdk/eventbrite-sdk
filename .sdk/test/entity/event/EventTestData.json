@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "event": {
+      "EVENT00": {
+        "capacity": "s78",
+        "created": "s79",
+        "currency": "s7a",
+        "description": "s7b",
+        "end": "s7c",
+        "id": "EVENT00",
+        "listed": true,
+        "name": "s7f",
+        "online_event": true,
+        "shareable": false,
+        "start": "s82",
+        "status": "s83"
+      },
+      "EVENT01": {
+        "capacity": "sf0",
+        "created": "sf1",
+        "currency": "sf2",
+        "description": "sf3",
+        "end": "sf4",
+        "id": "EVENT01",
+        "listed": true,
+        "name": "sf7",
+        "online_event": true,
+        "shareable": false,
+        "start": "sfa",
+        "status": "sfb"
+      },
+      "EVENT02": {
+        "capacity": "s168",
+        "created": "s169",
+        "currency": "s16a",
+        "description": "s16b",
+        "end": "s16c",
+        "id": "EVENT02",
+        "listed": true,
+        "name": "s16f",
+        "online_event": true,
+        "shareable": false,
+        "start": "s172",
+        "status": "s173"
+      }
+    }
+  },
+  "new": {
+    "event": {
+      "event_ref01": {
+        "capacity": "s1e0",
+        "created": "s1e1",
+        "currency": "s1e2",
+        "description": "s1e3",
+        "end": "s1e4",
+        "listed": true,
+        "name": "s1e7",
+        "online_event": true,
+        "shareable": false,
+        "start": "s1ea",
+        "status": "s1eb"
+      }
+    }
+  }
+}
