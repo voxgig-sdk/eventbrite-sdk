@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+// Eventbrite SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+EventbriteUtility::setRegistrar(function (EventbriteUtility $u): void {
+    $u->clean = [EventbriteClean::class, 'call'];
+    $u->done = [EventbriteDone::class, 'call'];
+    $u->make_error = [EventbriteMakeError::class, 'call'];
+    $u->feature_add = [EventbriteFeatureAdd::class, 'call'];
+    $u->feature_hook = [EventbriteFeatureHook::class, 'call'];
+    $u->feature_init = [EventbriteFeatureInit::class, 'call'];
+    $u->fetcher = [EventbriteFetcher::class, 'call'];
+    $u->make_fetch_def = [EventbriteMakeFetchDef::class, 'call'];
+    $u->make_context = [EventbriteMakeContext::class, 'call'];
+    $u->make_options = [EventbriteMakeOptions::class, 'call'];
+    $u->make_request = [EventbriteMakeRequest::class, 'call'];
+    $u->make_response = [EventbriteMakeResponse::class, 'call'];
+    $u->make_result = [EventbriteMakeResult::class, 'call'];
+    $u->make_point = [EventbriteMakePoint::class, 'call'];
+    $u->make_spec = [EventbriteMakeSpec::class, 'call'];
+    $u->make_url = [EventbriteMakeUrl::class, 'call'];
+    $u->param = [EventbriteParam::class, 'call'];
+    $u->prepare_auth = [EventbritePrepareAuth::class, 'call'];
+    $u->prepare_body = [EventbritePrepareBody::class, 'call'];
+    $u->prepare_headers = [EventbritePrepareHeaders::class, 'call'];
+    $u->prepare_method = [EventbritePrepareMethod::class, 'call'];
+    $u->prepare_params = [EventbritePrepareParams::class, 'call'];
+    $u->prepare_path = [EventbritePreparePath::class, 'call'];
+    $u->prepare_query = [EventbritePrepareQuery::class, 'call'];
+    $u->graphql_body = [EventbriteGraphql::class, 'body'];
+    $u->graphql_errors = [EventbriteGraphql::class, 'errors'];
+    $u->result_basic = [EventbriteResultBasic::class, 'call'];
+    $u->result_body = [EventbriteResultBody::class, 'call'];
+    $u->result_headers = [EventbriteResultHeaders::class, 'call'];
+    $u->transform_request = [EventbriteTransformRequest::class, 'call'];
+    $u->transform_response = [EventbriteTransformResponse::class, 'call'];
+});
